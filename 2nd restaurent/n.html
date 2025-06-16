@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL MIRAI</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8; /* Light background for the page */
+        }
+
+        /* --- Header Styling --- */
+        header {
+            background: linear-gradient(180deg, black, lightgray);
+            padding: 10px 20px;
+            color: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for header */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            flex-grow: 1;
+        }
+
+        .header-left img {
+            max-width: 120px;
+            height: auto;
+            display: block;
+            margin-right: 15px;
+            border-radius: 5px; /* Slightly rounded corners for the logo */
+        }
+
+        header h1 {
+            font-size: 30px;
+            color: aquamarine;
+            margin: 0;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .welcome-message {
+            font-size: 18px;
+            text-align: right;
+            flex-grow: 1;
+            min-width: 200px;
+        }
+
+        /* --- Navigation Styling --- */
+        nav {
+            padding: 5px;
+            background-color: gray;
+            font-size: 20px;
+            text-align: center;
+            position: sticky; /* Make navigation sticky */
+            top: 0; /* Stick to the top */
+            z-index: 1000; /* Ensure it stays above other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 10px 25px;
+            color: whitesmoke;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: lightgray;
+            color: black;
+        }
+
+        /* --- Main Content Styling --- */
+        main {
+            padding: 20px;
+            max-width: 1000px; /* Limit main content width */
+            margin: 20px auto; /* Center main content */
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Soft shadow for main content */
+        }
+
+        .food-category {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee; /* Separator between categories */
+        }
+
+        .food-category:last-child {
+            border-bottom: none; /* No border for the last category */
+        }
+
+        .food-category h2 {
+            color: #0056b3; /* A nice blue for category headings */
+            font-size: 28px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0056b3;
+            display: inline-block; /* Make border only as wide as text */
+            padding-bottom: 5px;
+        }
+
+        .food-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline; /* Align prices with item names */
+            padding: 8px 0;
+            font-size: 18px;
+            border-bottom: 1px dashed #f0f0f0; /* Light dashed separator for items */
+        }
+
+        .food-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .item-description {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #28a745; /* Green for prices */
+        }
+
+        /* --- Footer Styling --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 10px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .header-left img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            header h1 {
+                text-align: center;
+            }
+
+            .welcome-message {
+                text-align: center;
+                margin-top: 10px; /* Space above welcome message */
+            }
+
+            nav a {
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                display: block;
+                padding: 10px;
+                border-bottom: 1px solid #666; /* Separator for stacked nav items */
+            }
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            .food-category h2 {
+                font-size: 24px;
+            }
+
+            .food-item {
+                flex-direction: column; /* Stack item name/desc and price */
+                align-items: flex-start;
+            }
+
+            .item-price {
+                margin-top: 5px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-left">
+            <img src="logo.png" alt="Hotel Mirai Logo">
+            <h1>HOTEL MIRAI</h1>
+        </div>
+        <div class="welcome-message">
+            <h2>Welcome to Hotel Mirai!</h2>
+            <p>Experience exquisite dining and unforgettable moments.</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#soups-section">Soups</a>
+        <a href="#starters-section">Starters</a>
+        <a href="#veg-biryani-section">Veg Biryani</a>
+        <a href="#non-veg-biryani-section">Non-Veg Biryani</a>
+        <a href="#desserts-section">Desserts</a>
+    </nav>
+
+    <main>
+        <section class="food-category" id="soups-section">
+            <h2>Soups</h2>
+            <p>Warm up your palate with our comforting and flavorful soup selections, prepared fresh daily.</p>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Tomato Basil Soup</span>
+                    <p class="item-description">Classic creamy tomato soup with fresh basil hints.</p>
+                </div>
+                <span class="item-price">₹180</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Manchow Soup (Veg/Chicken)</span>
+                    <p class="item-description">Spicy and tangy Indo-Chinese soup with crispy noodles.</p>
+                </div>
+                <span class="item-price">₹200</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Cream of Mushroom Soup</span>
+                    <p class="item-description">Rich and velvety soup with fresh button mushrooms.</p>
+                </div>
+                <span class="item-price">₹190</span>
+            </div>
+        </section>
+
+        <section class="food-category" id="starters-section">
+            <h2>Starters</h2>
+            <p>Begin your culinary journey with our delectable array of appetizers, perfect for sharing or savoring solo.</p>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Paneer Tikka</span>
+                    <p class="item-description">Marinated cottage cheese grilled to perfection.</p>
+                </div>
+                <span class="item-price">₹280</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Crispy Corn</span>
+                    <p class="item-description">Golden fried corn kernels tossed with spices.</p>
+                </div>
+                <span class="item-price">₹250</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Chicken Chilli Dry</span>
+                    <p class="item-description">Tangy and spicy chicken pieces, stir-fried with capsicum and onion.</p>
+                </div>
+                <span class="item-price">₹320</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Spring Rolls (Veg/Non-Veg)</span>
+                    <p class="item-description">Crispy rolls filled with fresh vegetables or chicken.</p>
+                </div>
+                <span class="item-price">₹260</span>
+            </div>
+        </section>
+
+        <section class="food-category" id="veg-biryani-section">
+            <h2>Veg Biryani</h2>
+            <p>Experience the aromatic and flavorful vegetarian biryanis, a true delight for your senses.</p>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Hyderabadi Veg Dum Biryani</span>
+                    <p class="item-description">Fragrant basmati rice cooked with mixed vegetables and aromatic spices.</p>
+                </div>
+                <span class="item-price">₹350</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Paneer Biryani</span>
+                    <p class="item-description">Basmati rice cooked with succulent paneer cubes and traditional biryani spices.</p>
+                </div>
+                <span class="item-price">₹380</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Mushroom Biryani</span>
+                    <p class="item-description">Flavorful biryani prepared with fresh mushrooms and secret spices.</p>
+                </div>
+                <span class="item-price">₹360</span>
+            </div>
+        </section>
+
+        <section class="food-category" id="non-veg-biryani-section">
+            <h2>Non-Veg Biryani</h2>
+            <p>Indulge in our rich and authentic non-vegetarian biryanis, slow-cooked to perfection.</p>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Chicken Dum Biryani</span>
+                    <p class="item-description">Classic aromatic basmati rice layered with tender chicken pieces and spices.</p>
+                </div>
+                <span class="item-price">₹420</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Mutton Biryani</span>
+                    <p class="item-description">Slow-cooked tender mutton with basmati rice, a chef's special.</p>
+                </div>
+                <span class="item-price">₹480</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Fish Biryani</span>
+                    <p class="item-description">Delicate fish pieces cooked with fragrant rice and mild spices.</p>
+                </div>
+                <span class="item-price">₹450</span>
+            </div>
+        </section>
+
+        <section class="food-category" id="desserts-section">
+            <h2>Desserts</h2>
+            <p>End your meal on a sweet note with our delightful selection of traditional and contemporary desserts.</p>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Gulab Jamun</span>
+                    <p class="item-description">Soft, deep-fried milk solids soaked in rose-flavored sugar syrup.</p>
+                </div>
+                <span class="item-price">₹120</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Gajar Halwa</span>
+                    <p class="item-description">Traditional carrot pudding slow-cooked with milk and dry fruits.</p>
+                </div>
+                <span class="item-price">₹150</span>
+            </div>
+            <div class="food-item">
+                <div class="item-details">
+                    <span class="item-name">Ice Cream (Vanilla/Chocolate)</span>
+                    <p class="item-description">Classic scoops of creamy ice cream.</p>
+                </div>
+                <span class="item-price">₹100</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2025 HOTEL MIRAI. All rights reserved. | <a href="#" style="color: aquamarine; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: aquamarine; text-decoration: none;">Terms of Service</a>
+        </p>
+    </footer>
+</body>
+</html>
